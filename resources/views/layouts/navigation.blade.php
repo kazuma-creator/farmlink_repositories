@@ -3,19 +3,33 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
             <div class="flex">
+                <!-- Hamburger -->
+                {{-- <div class="-me-2 flex items-center sm:hidden">
+                    <button @click="open = ! open" class="inline-flex items-center justify-center p-2 rounded-md text-yellow-100 hover:text-yellow-300 hover:bg-green-800 focus:outline-none focus:bg-green-800 focus:text-yellow-300 transition duration-150 ease-in-out">
+                        <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                            <path :class="{'hidden': open, 'inline-flex': ! open }" class="inline-flex" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                            <path :class="{'hidden': ! open, 'inline-flex': open }" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div> --}}
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('crops.index') }}" class="text-yellow-100 text-xl font-bold tracking-wide">
                         FARMLINK
                     </a>
                 </div>
-
-                <!-- Navigation Links -->
-                <!-- <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')" class="text-yellow-100 hover:text-yellow-300">
-                        {{ __('Dashboard') }}
-                    </x-nav-link>
-                </div> -->
+                <!-- 台帳リンク -->
+                {{-- <div class="ms-10 flex items-center space-x-4">
+                    <a href="{{ route('ledger.index') }}" class="text-yellow-100 hover:text-yellow-300 font-medium">
+                        台帳
+                    </a>
+                    <a href="{{ route('cropping.index') }}" class="text-yellow-100 hover:text-yellow-300 font-medium">
+                        作付
+                    </a>
+                    <a href="{{ route('materials.index')}}" class="text-yellow-100 hover:text-yellow-300 font-medium">
+                        資材
+                    </a>
+                </div> --}}
             </div>
 
             <!-- Settings Dropdown -->
@@ -52,26 +66,11 @@
                 </x-dropdown>
             </div>
 
-            <!-- Hamburger -->
-            <div class="-me-2 flex items-center sm:hidden">
-                <button @click="open = ! open" class="inline-flex items-center justify-center p-2 rounded-md text-yellow-100 hover:text-yellow-300 hover:bg-green-800 focus:outline-none focus:bg-green-800 focus:text-yellow-300 transition duration-150 ease-in-out">
-                    <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
-                        <path :class="{'hidden': open, 'inline-flex': ! open }" class="inline-flex" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                        <path :class="{'hidden': ! open, 'inline-flex': open }" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                </button>
-            </div>
         </div>
     </div>
 
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden bg-green-700">
-        <div class="pt-2 pb-3 space-y-1">
-            <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')" class="text-yellow-100 hover:bg-green-800 hover:text-yellow-300">
-                {{ __('Dashboard') }}
-            </x-responsive-nav-link>
-        </div>
-
         <!-- Responsive Settings Options -->
         <div class="pt-4 pb-1 border-t border-green-600">
             <div class="px-4">
@@ -98,3 +97,32 @@
         </div>
     </div>
 </nav>
+
+<style>
+    .header-bg {
+        position: fixed;
+        top: 0;
+        left: 0; /* サイドバーの幅と一致させる */
+        right: 0;
+        height: 4rem;
+        background-color: #047857; /* ナビゲーションバーの背景色 */
+        color: #facc15; /* テキストの色 */
+        display: flex;
+        align-items: center;
+        padding: 0 1.5rem;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        z-index: 1000; /* 高いz-indexで他の要素の上に表示 */
+    }
+
+    /* コンテンツが隠れないように余白を確保 */
+    .main-content {
+        padding-top: 4rem; /* ナビゲーションバーの高さ分余白を確保 */
+    }
+
+    /* レスポンシブ対応 */
+    @media (max-width: 768px) {
+        .header-bg {
+            height: auto; /* 小さい画面で高さを自動調整 */
+        }
+    }
+</style>

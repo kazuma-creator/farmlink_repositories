@@ -1,154 +1,124 @@
-/* 全体の背景とレイアウト */
+@keyframes fadeInUp {
+  from {
+      opacity: 0;
+      transform: translateY(20px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
 body {
-  font-family: 'Figtree', sans-serif;
-  background: linear-gradient(to bottom right, #216d2a, #b5ffb5);
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  margin: 0;
-  padding: 0;
+  background: linear-gradient(135deg, #4CAF50, #8BC34A, #2196F3);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
 }
 
-/* 背景アニメーションのスタイル */
-#background-animation {
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.background-pattern {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: -1; /* 背景として扱う */
-  overflow: hidden;
+  opacity: 0.1;
+  z-index: -1;
 }
-/* ログインコンテナ */
-.login-container {
-  background-image : url('/images/paper-texture.jpg');
-  padding: 40px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+.container {
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   width: 100%;
   max-width: 400px;
+  animation: fadeInUp 0.6s ease-out;
+}
+
+h1 {
+  color: #2E7D32;
   text-align: center;
-  z-index: 1; /* 背景より手前に表示 */
+  margin-bottom: 1rem;
 }
 
-/* ログインタイトル */
-.login-title {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #333;
-  margin-bottom: 10px;
-}
-
-/* ログイン説明 */
 .login-description {
-  font-size: 0.9rem;
-  color: #666;
-  margin-bottom: 20px;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #555;
 }
 
-/* フォーム */
-.login-form .form-group {
-  margin-bottom: 15px;
-  text-align: left;
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
-/* ラベル */
-.login-form label {
-  display: block;
-  margin-bottom: 5px;
+label {
+  color: #1B5E20;
   font-weight: bold;
-  color: #555;
 }
 
-/* 入力フィールド */
-.login-form input {
-  background-color: transparent;
+input {
   width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  padding: 0.75rem;
+  border: 2px solid #4CAF50;
+  border-radius: 25px;
   font-size: 1rem;
+  transition: all 0.3s ease;
 }
 
-.login-form input:focus {
-  border-color: #007bff;
+input:focus {
   outline: none;
-  box-shadow: 0 0 4px rgba(0, 123, 255, 0.5);
+  border-color: #2E7D32;
+  box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.3);
 }
 
-/* エラーメッセージ */
-.error-message {
-  color: #ff0000;
-  font-size: 0.875rem;
-  margin-top: 5px;
+button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 1rem;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
-/* チェックボックス */
-.remember-me {
-  display: flex;
-  /* align-items: center; */
-  /* margin-bottom: 20px; */
-}
-
-.checkbox-label {
-  font-size: 0.875rem;
-  color: #555;
-}
-
-/* アクション */
-.form-actions {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+button:hover {
+  background-color: #45a049;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .forgot-password-link {
-  font-size: 0.875rem;
+  text-align: center;
   color: #007bff;
   text-decoration: none;
+  font-size: 0.9rem;
 }
 
 .forgot-password-link:hover {
   text-decoration: underline;
 }
 
-/* ボタン */
-.primary-button {
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  padding: 10px 20px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.primary-button:hover {
-  background-color: #0056b3;
-}
-
-input[type="checkbox"].checkbox-custom {
-  appearance: none;
-  width: 16px;
-  height: 16px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  background-color: transparent;
-  display: inline-block;
-  vertical-align: middle;
-  cursor: pointer;
-}
-
-.frame-container{
-  background-image: url('/images/background-frame.jpg');
-  background-size: 100% 100%;
-  padding: 100px;
-  border-radius: 10px;
-  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
-  width: 100%;
-  min-height: 500px;
-  max-width: 700px;
-  text-align: center;
-  z-index: 1; /* 背景より手前に表示 */
+.remember-me {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.9rem;
+  color: #555;
 }

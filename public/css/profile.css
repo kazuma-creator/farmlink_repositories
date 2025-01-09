@@ -1,167 +1,154 @@
-/* プロフィール画面の背景グラデーション */
+/* 全体背景 */
 .profile-body {
-  font-family: Arial, sans-serif;
-  background: linear-gradient(to bottom, #f9faf8, #e9ecef);
-  color: #333;
+  font-family: 'Figtree', 'PencilKaisho', cursive, sans-serif;
+  background: linear-gradient(to bottom right, #f3f8e0, #d4e8d0);
   margin: 0;
   padding: 0;
-}
-
-.profile-background{
-  background-color: #fffdd0;
-}
-
-/* プロフィールコンテナ */
-.profile-container {
-  background-image: url('/images/paper-texture.jpg');
-  background-size: cover;
-  position: relative;
+  min-height: 100vh;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  padding: 50px 20px;
-  /* height: 500px; */
-  /* overflow: auto; */
-  margin: 70px;
-}
-/* 見出しのスタイル */
-.profile-container h2 ,p,label{
-  font-family: 'PencilKaisho', cursive; /* 手書き風フォント */
-  font-size: large;
-  color: #333;
-  margin-bottom: 10px;
-  text-align: center;
 }
 
-.profile-container::before{
-  content: '';
-  position: absolute;
-  top: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 20px;
-  height: 20px;
-  background-color: #e74c3c;
-  border-radius: 50%;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* 押しピンの影 */
-  z-index: 2;
+/* コンテナ */
+.profile-container {
+  background-color: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  padding: 30px;
+  max-width: 600px;
+  width: 90%;
+  text-align: center;
+  animation: fadeInUp 0.5s ease-in-out;
+}
+
+/* アニメーション */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ヘッダーテキスト */
+.profile-container h2 {
+  font-family: 'PencilKaisho', cursive;
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #2e7d32;
+  margin-bottom: 10px;
+}
+
+.profile-container p {
+  font-family: 'Figtree', sans-serif;
+  color: #666;
+  margin-bottom: 20px;
+  font-size: 1rem;
 }
 
 /* プロフィールアイコン */
 .profile-icon-container {
   position: relative;
+  display: inline-block;
+  margin-bottom: 20px;
 }
 
 .profile-icon-container img {
   width: 120px;
   height: 120px;
   border-radius: 50%;
-  /* border: 1px solid #000000; */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: 4px solid #4caf50;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
   object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.profile-icon-container img:hover {
+  transform: scale(1.05);
 }
 
 .profile-icon-container .edit-icon {
   position: absolute;
-  bottom: 10px;
-  right: 10px;
-  background-color: #007bff;
+  bottom: 5px;
+  right: 5px;
+  background-color: #4caf50;
   padding: 8px;
   border-radius: 50%;
   color: white;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-/* プロフィールフォーム全体のスタイル */
+.profile-icon-container .edit-icon:hover {
+  background-color: #45a049;
+}
+
+/* フォーム */
 .profile-form {
-  background: transparent ;
-  padding: 20px;
-  border-radius: 10px;
-  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
-  width: 100%;
-  max-width: 400px;
   margin-top: 20px;
+  text-align: left;
 }
 
-/* フォームラベル */
 .profile-form label {
-  display: block;
-  margin-bottom: 8px;
+  font-family: 'Figtree', sans-serif;
   font-weight: bold;
-  color: #972121;
+  color: #2e7d32;
+  margin-bottom: 5px;
+  display: block;
 }
 
-/* フォーム入力フィールド */
 .profile-form input {
   width: 100%;
   padding: 10px;
   margin-bottom: 15px;
-  border: 1px solid #8b1c1c; /* 枠線 */
-  border-radius: 6px;
-  font-size: 16px;
-  background-color: transparent;
+  border: 2px solid #c8e6c9;
+  border-radius: 8px;
+  font-size: 1rem;
+  background-color: #f9fff9;
+  transition: all 0.3s ease;
 }
 
 .profile-form input:focus {
   border-color: #4caf50;
-  box-shadow: 0 0 4px rgba(0, 123, 255, 0.5);
+  box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+  outline: none;
 }
 
 /* 保存ボタン */
-.profile-form .profile-save-button {
-  background-color: #4caf50;
-  color: white;
-  border: none;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  text-align: center;
-  padding: 10px 20px;
-  font-size: 1rem;
-  border-radius: 8px;
+.profile-save-button {
+    display: inline-block;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    text-align: center;
 }
 
-.profile-form .profile-save-button:hover {
+.profile-save-button:hover {
   background-color: #45a049;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
-.profile-info-bg {
-  position: relative;
-  padding: 0px; /* 内側の余白を設定 */
-  border-radius: 12px; /* 角を丸める */
-  background: url('/images/background-frame.jpg') no-repeat center center; /* 額縁の背景画像 */
-  background-size: 100% 100%; /* 額縁画像を枠全体に調整 */
-  overflow: hidden; /* 内側の要素が枠をはみ出さないようにする */
-}
-
-/* コルクのテクスチャ */
-.profile-info-bg::before {
-  content: '';
-  position: absolute;
-  top: 50px; /* 額縁の内側に余白を作る */
-  left: 50px;
-  right: 50px;
-  bottom: 50px;
-  background: url('/images/コルクテクスチャ.jpg') repeat; /* コルクテクスチャ */
-  background-size: 500px 500px; /* タイルサイズを調整 */
-  z-index: 1;
-  border-radius: 8px; /* コルク部分の角を少し丸くする */
-  margin-top: 25px;
-  margin-bottom: 25px;
-  margin-left: 15px;
-  margin-right: 15px;
-}
-
-/* 内部要素を前面に表示 */
-.profile-info-bg > div {
-  position: relative;
-  z-index: 2;
-}
-
-@font-face {
-  font-family: 'PencilKaisho';
-  src: url('/fonts/g_pencilkaisho_free.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+  .profile-container {
+    padding: 20px;
+  }
+  .profile-save-button {
+    width: 100%;
+    padding: 12px;
+  }
 }

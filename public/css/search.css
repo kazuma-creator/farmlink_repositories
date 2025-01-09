@@ -7,6 +7,7 @@
   border-radius: 50%; /* 完全な丸形に */
   background-color: transparent; /* 背景色を追加 */
   transition: width 0.4s ease-in-out, background-color 0.3s ease-in-out; /* 幅と背景色のトランジション */
+  margin-bottom: 10px;
 }
 
 /* インプットボックスのスタイル */

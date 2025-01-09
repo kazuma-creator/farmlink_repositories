@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/public.css')}}">
+    <link rel="stylesheet" href="{{ asset('css/corn.css')}}">
+    <link rel="stylesheet" href="{{ asset('css/simple_page.css')}}">
     <link href="https://fonts.googleapis.com/css2?family=Caveat&family=Permanent+Marker&display=swap" rel="stylesheet">
 
 

@@ -16,7 +16,7 @@
                 {{-- Previous Page Link --}}
                 @if ($paginator->onFirstPage())
                     <li class="page-item disabled" aria-disabled="true">
-                        <span class="page-link" aria-hidden="true">@lucideIcon('chevron-left')</span>
+                        <span class="page-link" aria-hidden="true"></span>
                     </li>
                 @else
                     <li class="page-item">

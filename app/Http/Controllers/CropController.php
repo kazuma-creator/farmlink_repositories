@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 
 use App\Models\Crop;
+use App\Models\Template;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -26,7 +27,7 @@ class CropController extends Controller
             });        
         }
         // ページネーション
-        $crops = $query->paginate(10);
+        $crops = $query->orderBy('created_at','desc')->paginate(10);
     
         return view('crops.index', compact('crops'));
     }
@@ -155,4 +156,42 @@ class CropController extends Controller
 
         return redirect()->route('crops.index')->with('success', '農作物が削除されました');
     }
+
+    public function editTemplate(Crop $crop)
+    {
+        $templates = Template::all();
+        return view('crops.templates', compact('crop', 'templates'));
+    }
+
+    public function updateTemplate(Request $request, Crop $crop)
+    {
+        $validated = $request->validate([
+            'template_id' => 'required|exists:templates,id',
+        ]);
+
+        // テンプレートIDを更新
+        $crop->template_id = $validated['template_id'];
+        $crop->save();
+
+        return redirect()->route('crops.index')->with('success', 'テンプレートを更新しました');
+    }
+
+    public function preview($id, $template)
+    {
+        $view = ($template === 'default') ? 'crops.public_show' : $template;
+    
+        // 渡されたIDから農作物を取得
+        $crop = Crop::with('user')->find($id);
+        if (!$crop) {
+            abort(404, 'Crop not found');
+        }
+    
+        $icon = $crop->user->icon ?? 'default_icon.png';
+        $name = $crop->user->name ?? '未登録';
+        $farm_name = $crop->user->farm_name ?? '未登録';
+        $farm_address = $crop->user->farm_address ?? '未登録';
+    
+        return view($view, compact('crop', 'icon', 'name', 'farm_name', 'farm_address'));
+    }
+        
 }
