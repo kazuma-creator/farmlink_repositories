@@ -10,11 +10,10 @@
           color: #333;
           background-color: #f8f9fa;
       }
-      .default-container {
+      .container {
           max-width: 480px;
           margin: 0 auto;
           box-shadow: 0 0 10px rgba(0,0,0,0.1);
-          background:url('/images/木目背景.jpg');
       }
 
       /* Header styles */
@@ -112,9 +111,8 @@
           background-color: rgba(0, 0, 0, 0.1); /* 半透明の黒背景でテキストを見やすく */
       }
       .hero h1 {
-          font-size: 1.3rem;
+          font-size: 2rem;
           margin-bottom: 0.5rem;
-          background-color: #999999;
       }
       .badge {
           display: inline-block;
@@ -128,7 +126,7 @@
       /* Main content styles */
       main {
           padding: 1rem;
-          /* background:url('/images/木目背景.jpg'); */
+          background:url('/images/木目背景.jpg');
       }
       .section {
           margin-bottom: 2rem;

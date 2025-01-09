@@ -12,13 +12,25 @@
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
         <link rel="stylesheet" href="{{asset('css/login.css')}}">
 
+        <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="font-sans text-gray-900 antialiased">
-            <div class="min-h-screen flex items-center justify-center">
+        <!-- <canvas id="background-animation"></canvas> -->
+        <!-- <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100 dark:bg-gray-900"> -->
+            <!-- <div>
+                <a href="/">
+                    <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
+                </a>
+            </div> -->
+            <div class=" frame-container">
+                <div class="login-area items-center">
                     {{ $slot }}
+                </div>
             </div>
-        <script src="https://code.jquery.com/pep/0.4.3/pep.js"></script>
-        <script src="{{ asset('js/blob-animation.js') }}"></script>    
+        <!-- </div> -->
+        <!-- JavaScript -->
+        <!-- <script src="https://code.jquery.com/pep/0.4.3/pep.js"></script>
+        <script src="{{ asset('js/blob-animation.js') }}"></script>     -->
     </body>
 </html>
