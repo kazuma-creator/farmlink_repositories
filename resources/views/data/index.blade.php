@@ -4,10 +4,10 @@
 
 @section('content')
 <div class="dashboard-container mx-auto my-6 bg-white p-6 rounded shadow-lg">
-    <h1 class="dashboard-title text-3xl font-bold mb-6 text-gray-800">ダッシュボード（日別収穫量 & 収穫率）</h1>
+    <h1 class="dashboard-title">ダッシュボード（日別収穫量 & 収穫率）</h1>
 
     <!-- 作付けを選択するフォーム -->
-    <form action="{{ route('data.index') }}" method="GET" class="dashboard-form flex items-center mb-8">
+    <form action="{{ route('data.index') }}" method="GET" class="dashboard-form">
         <label for="cropping_id" class="dashboard-label mr-4 text-lg font-semibold text-gray-700">作付けを選択:</label>
         <select name="cropping_id" id="cropping_id" class="dashboard-select border border-gray-300 p-2 rounded shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
             <option value="">-- 選択してください --</option>
@@ -107,12 +107,20 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     .dashboard-title {
-        color: #1a202c;
+        font-size: 2rem;
+        font-weight: bold;
+        text-align: center;
+        color: #2d3748;
+        text-transform: uppercase;
+        letter-spacing: 0.1rem;
     }
     
     .dashboard-form {
         display: flex;
         align-items: center;
+        float:right;
+        margin-top:20px;
+        margin-bottom:50px;
     }
     
     .dashboard-label {

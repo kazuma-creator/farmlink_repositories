@@ -29,7 +29,7 @@
             <div class="first-view">
                 <div class="first-view-text">
                     <h1>FARMLINK</h1>
-                    <p>生産者と消費者を繋ぐ</p>
+                    <p>～食卓にもっと安全を、そして絆を～</p>
                 </div>
             </div>
             <div class="lead">
